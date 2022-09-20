@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Retrieve Employee";
+}
+
+<h3>@ViewBag.Message</h3>
+
+
+<font color="black" size="5" style="font-family: avenir">
+
+
+    <h1 style="color: DodgerBlue">Retrieve Employee Information</h1>
+    <body id="secondPage" bgcolor="lightgrey">
+        <form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+
+
+            <form class="form-horizontal  ">
+
+
+
+                <h1>Employee Information</h1>
+                <br />
+
+
+                <div class="form-group">
+                    <label for="inputID" class="col-lg-2 control-label">Employee Id</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputID" placeholder="Employee Id">
+                    </div>
+                </div>
+
+                <br /> <br />
+                <button type="submit" formaction="/Home/empOutput" class="btn btn-primary btn-lg">Fetch Info</button><br /><br />
+                <button type="submit" formaction="/Home/addEmployee" class="btn btn-primary btn-lg">GO TO UPDATE DATABASE PAGE</button>
+
+            </form>
+        </form>
+
+    </body>
+</font>
