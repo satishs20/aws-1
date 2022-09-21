@@ -6,8 +6,8 @@ from config import *
 
 app = Flask(__name__)
 
-bucket = chongkewei-bucket
-region = us-east-1
+bucket = custombucket
+region = customregion
 
 db_conn = connections.Connection(
     host=customhost,
