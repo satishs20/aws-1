@@ -2,76 +2,76 @@
     ViewBag.Title = "addEmployee";
 }
 
-    <font color="black" size="4" style="font-family: avenir">
+<font color="black" size="4" style="font-family: avenir">
 
-        <h1 style="color: DodgerBlue">Employee Database</h1>
-        
-        <body id="firstPage" bgcolor="lightgrey">
+    <!---<h1 style="color: DodgerBlue">Employee Database</h1>-->
 
-            <form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+    <body id="firstPage" bgcolor="lightgrey">
 
-
-                <form class="form-horizontal  ">
-                    
-                    <button type="submit" formaction="/Home/retrieveEmployee" class="btn btn-primary btn-lg">GET EMPLOYEE INFORMATION</button><br><br>
+        <form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
 
 
+            <form class="form-horizontal  ">
 
-                    <h1>Add Employee</h1>
-
-                    <div class="form-group">
-                        <label for="inputID" class="col-lg-2 control-label">Employee Id</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputID" placeholder="Employee Id">
-                        </div>
-                    </div>
-                   
+                <!---<button type="submit" formaction="/Home/retrieveEmployee" class="btn btn-primary btn-lg">GET EMPLOYEE INFORMATION</button><br><br>
+                -->
 
 
+                <h1 style="font-family: ProximaNovaSemiBold,Arial,sans-serif; font-size: 40px; line-height: 60px; margin-bottom: 13px; margin-left: 15px;  ">Add Employee</h1>
 
-                    <br /> <br />
-                    <div class="form-group">
-                        <label for="inputFN" class="col-lg-2 control-label">First Name </label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputFN" placeholder="FirstName">
-                        </div>
-                    </div>
-                    <br /> <br />
-
-                    <div class="form-group">
-                        <label for="inputlN" class="col-lg-2 control-label">Last Name </label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputLN" placeholder="LastName">
-                        </div>
-                    </div>
-                    <br /> <br />
-
-
-                    <div class="form-group">
-                        <label for="location" class="col-lg-2 control-label">Location</label>
-                        <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="location"></textarea>
-
-                        </div>
-                    </div>
-                    <br /> <br />   <br /> <br />
-                    <label for="image" class="col-lg-2 control-label">Image</label>
+                <div class="form-group">
+                    <label for="inputID" class="col-lg-2 control-label" style="font-family: "Source Sans Pro", "Helvetica Neue" , Helvetica, Arial, sans-serif;">Employee Id</label>
                     <div class="col-lg-10">
-                        <input type="file" class="form-control" id="customFile" />
+                        <input type="text" class="form-control" id="inputID" placeholder="Employee Id">
                     </div>
+                </div>
 
-                    <br /> <br /> <br />
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
 
-                            <button type="submit" formaction="/Home/addSuccessful" class="btn btn-primary">Submit</button>
-                        </div>
+
+
+                <br /> <br />
+                <div class="form-group">
+                    <label for="inputFN" class="col-lg-2 control-label">First Name </label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputFN" placeholder="FirstName">
                     </div>
+                </div>
+                <br /> <br />
 
-                </form>
+                <div class="form-group">
+                    <label for="inputlN" class="col-lg-2 control-label">Last Name </label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputLN" placeholder="LastName">
+                    </div>
+                </div>
+                <br /> <br />
+
+
+                <div class="form-group">
+                    <label for="location" class="col-lg-2 control-label">Location</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" id="location"></textarea>
+
+                    </div>
+                </div>
+                <br /> <br />   <br /> <br />
+                <label for="image" class="col-lg-2 control-label">Image</label>
+                <div class="col-lg-10">
+                    <input type="file" class="form-control" id="customFile" />
+                </div>
+
+                <br /> <br /> <br />
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+
+                        <button type="submit" formaction="/Home/addSuccessful" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
             </form>
-       
-        </body>
+        </form>
 
-    </font>
+    </body>
+
+</font>
 
