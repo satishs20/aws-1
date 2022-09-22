@@ -49,6 +49,13 @@ def samplepage():
 
 @app.route("/searchEmployee", methods=['GET', 'POST'])
 def searchEmployee():
+    global emp_id
+    global first_name
+    global last_name
+    global pri_skill
+    global location
+    global emp_image_file
+    
     with connections.Connection(
         host=customhost,
         port=3306,
