@@ -30,7 +30,7 @@
             </div>
         </div>
     </nav>
-    <form action="/retrieveEmp" autocomplete="on" method="POST" enctype="multipart/form-data" style="width:750px;height:550px; border-radius: 15px;border-width: medium;background: linear-gradient(to bottom, white 0%, ghostwhite 100%);border-style: double;box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+    <form action="/retrieveEmp" autocomplete="on" method="POST" enctype="multipart/form-data" style="width:750px;height:550px; border-radius: 15px;border-width: medium;background: linear-gradient(to bottom, white 0%, ghostwhite 100%);border-style: double;box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;border-color: aliceblue;">
 
 
         <form class="form-horizontal" style="width:700px;height:550px;">
@@ -49,19 +49,19 @@
             <div class="form-group" >
                 <label for="emp_id" class="col-lg-2 control-label" style="font-size: 18px;">Employee Id</label>
                 <div class="col-lg-10" >
-                    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee Id" style="margin-bottom: 10px;" readonly>
+                    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee Id" style="margin-bottom: 10px;" value="{{ emp_id|safe }}" readonly>
                 </div>
             </div>
             <div class="form-group" >
                 <label for="first_name" class="col-lg-2 control-label" style="font-size: 18px;">First Name </label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" style="margin-bottom: 10px;" readonly>
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" style="margin-bottom: 10px;" value="{{ first_name|safe }}" readonly>
                 </div>
             </div>
             <div class="form-group" >
                 <label for="last_name" class="col-lg-2 control-label" style="font-size: 18px;">Last Name </label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" style="margin-bottom: 10px;" readonly>
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" style="margin-bottom: 10px;" value="{{ last_name|safe }}" readonly>
                 </div>
             </div>
            
@@ -69,7 +69,7 @@
             <div class="form-group">
                 <label for="pri_skill" class="col-lg-2 control-label" style="font-size: 18px;">Primary Skill</label>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="pri_skill" name="pri_skill" placeholder="Primary Skill" style="margin-bottom: 10px;resize: none;" readonly></textarea>
+                    <textarea class="form-control" rows="3" id="pri_skill" name="pri_skill" placeholder="Primary Skill" style="margin-bottom: 10px;resize: none;" value="{{ pri_skill|safe }}" readonly></textarea>
 
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="form-group">
                 <label for="location" class="col-lg-2 control-label" style="font-size: 18px;">Location</label>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="location" name="location" placeholder="Location" style="margin-bottom: 10px;resize: none;" readonly></textarea>
+                    <textarea class="form-control" rows="3" id="location" name="location" placeholder="Location" style="margin-bottom: 10px;resize: none;" value="{{ location|safe }}" readonly></textarea>
 
                 </div>
             </div>

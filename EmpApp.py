@@ -38,7 +38,32 @@ def samplepage():
 
 @app.route("/searchEmployee", methods=['GET', 'POST'])
 def searchEmployee():
-    return render_template('empDetails.html')
+    with connections.Connection(
+        host=customhost,
+        port=3306,
+        user=customuser,
+        password=custompass,
+        db=customdb
+    ) as db_conn:
+        emp_id = request.form['emp_id']
+
+        select_sql = "SELECT * FROM employee WHERE emp_id = %s"
+        cursor = db_conn.cursor()
+        cursor.execute(select_sql)
+
+        records = cursor.fetchall()
+        row_count = cursor.rowcount
+        if row_count!=0:
+            for row in records:
+                emp_id = row[0]
+                first_name = row[1]
+                last_name = row[2]
+                pri_skill = row[3]
+                location = row[4]
+
+        cursor.close()
+        print("all modification done...")
+        return render_template('empDetails.html', emp_id=emp_id,first_name=first_name,last_name=last_name,pri_skill=pri_skill,location=location)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
