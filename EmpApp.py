@@ -14,7 +14,7 @@ table = 'employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('Index.cshtml')
+    return render_template('/aws-1/Views//Home/Index.cshtml')
 
 
 @app.route("/aws-1/Views//Home/addEmployee", methods=['POST'])
