@@ -24,9 +24,21 @@ def addEmp():
 def addSuccessful():
     return render_template('addSuccessful.html')
 
+@app.route("/empDetails", methods=['GET', 'POST'])
+def empDetails():
+    return render_template('empDetails.html')
+
+@app.route("/retrieveEmp", methods=['GET', 'POST'])
+def retrieveEmp():
+    return render_template('retrieveEmp.html')
+
 @app.route("/samplepage", methods=['GET', 'POST'])
 def samplepage():
     return render_template('samplepage.html')
+
+@app.route("/searchEmployee", methods=['GET', 'POST'])
+def searchEmployee():
+    return render_template('empDetails.html')
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
