@@ -72,6 +72,7 @@ def searchEmployee():
             global last_name1
             global pri_skill1
             global location1
+            global img_url1
                 
             for row in records:
                 
@@ -82,7 +83,9 @@ def searchEmployee():
                 location1 = row[4]
 
         cursor.close()
-        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1)
+        
+        img_url1 = "https://chongkewei-bucket.s3.amazonaws.com/" + "emp-id-" + str(emp_id1) + "_image_file"
+        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=img_url1)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
