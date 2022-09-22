@@ -86,9 +86,17 @@ def searchEmployee():
         cursor.close()
         
         s3 = boto3.resource('s3')
-        file_path = "https://chongkewei-bucket.s3.amazonaws.com/" + "emp-id-" + str(emp_id1) + "_image_file"
-        obj  = s3.Object(bucket,file_path)
-        img_url1 = HttpResponse(file_stream,content_type="image/jpeg")
+        s3_client = boto3.client('s3')
+        public_urls = []
+        file_path = "emp-id-" + str(emp_id1) + "_image_file"
+        try:
+            for item in s3_client.list_objects(Bucket=bucket)['Contents']:
+                presigned_url = s3_client.generate_presigned_url('get_object', Params = {'Bucket': bucket, 'Key': item[file_path]})
+                public_urls.append(presigned_url)
+        except Exception as e:
+            pass
+       
+        img_url1 = public_urls
         return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=img_url1)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
