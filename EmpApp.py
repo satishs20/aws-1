@@ -13,11 +13,19 @@ table = 'employee'
 
 
 @app.route("/", methods=['GET', 'POST'])
-def home():
-    return render_template('/aws-1/Views//Home/Index.cshtml')
+def index():
+    return render_template('index.html')
+
+@app.route("/samplepage", methods=['GET', 'POST'])
+def samplepage():
+    return render_template('samplepage.html')
+
+@app.route("/passPOSTDataSample", methods=["GET", "POST"])
+def passPOSTDataSample():
+    return render_template('passPOSTDataSample.html', my_display_data="something something html")
 
 
-@app.route("/aws-1/Views//Home/addEmployee", methods=['POST'])
+@app.route("/addEmployee", methods=['POST'])
 def AddEmp():
     with connections.Connection(
         host=customhost,
