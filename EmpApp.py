@@ -22,7 +22,16 @@ def samplepage():
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
-    return render_template('passPOSTDataSample.html', my_display_data="something something html")
+    field1 = request.form.get("field1")
+    field2 = request.form.get("field2")
+
+    output = ""
+    if field1 is not None:
+        output += "field1: " + field1 + "<br>"
+    if field2 is not None:
+        output += "field2: " + field2 + "<br>"
+
+    return render_template('passPOSTDataSample.html', my_display_data="something something html", previous_form_data=output)
 
 
 @app.route("/addEmployee", methods=['POST'])
