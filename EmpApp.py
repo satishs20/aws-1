@@ -16,6 +16,14 @@ table = 'employee'
 def index():
     return render_template('index.html')
 
+@app.route("/addEmp", methods=['GET', 'POST'])
+def addEmp():
+    return render_template('addEmp.html')  
+
+@app.route("/addSuccessful", methods=['GET', 'POST'])
+def addSuccessful():
+    return render_template('addSuccessful.html')
+
 @app.route("/samplepage", methods=['GET', 'POST'])
 def samplepage():
     return render_template('samplepage.html')
@@ -29,7 +37,7 @@ def passPOSTDataSample():
     if field1 is not None:
         output += "field1: " + field1 + "<br>"
     if field2 is not None:
-        output += "field2: " + field2 + "<br>"
+        output += "field2: " + field2 + "<br>" 
 
     return render_template('passPOSTDataSample.html', my_display_data="something something html", previous_form_data=output)
 
@@ -91,7 +99,7 @@ def AddEmp():
             cursor.close()
 
         print("all modification done...")
-        return render_template('AddEmpOutput.html', name=emp_name)
+        return render_template('addSuccessful.html', name=emp_name)
 
 
 if __name__ == '__main__':

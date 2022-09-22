@@ -3,10 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    This is index page
+<body id="firstPage" style="margin-top: 100px;">
+
+    <form action="/addEmployee" autocomplete="on" method="POST" enctype="multipart/form-data" style="width:700px;border-width: medium;background-color: ghostwhite;border-style: double;">
+
+
+        <form class="form-horizontal  ">
+
+            <!---<button type="submit" formaction="/Home/retrieveEmployee" class="btn btn-primary btn-lg">GET EMPLOYEE INFORMATION</button><br><br>
+            -->
+
+
+            <h1 style="font-family: ProximaNovaSemiBold,Arial,sans-serif; font-size: 40px; line-height: 60px; margin-bottom: 13px; margin-left: 15px;  ">Add Employee</h1>
+
+            <div class="form-group">
+                <label for="emp_id" class="col-lg-2 control-label" style="font-family: "Source Sans Pro", "Helvetica Neue" , Helvetica, Arial, sans-serif;">Employee Id</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="emp_id" placeholder="Employee Id">
+                </div>
+            </div>
+
+
+
+
+            <br /> <br />
+            <div class="form-group">
+                <label for="first_name" class="col-lg-2 control-label">First Name </label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="first_name" placeholder="FirstName">
+                </div>
+            </div>
+            <br /> <br />
+
+            <div class="form-group">
+                <label for="last_name" class="col-lg-2 control-label">Last Name </label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="last_name" placeholder="LastName">
+                </div>
+            </div>
+            <br /> <br />
+
+
+            <div class="form-group">
+                <label for="location" class="col-lg-2 control-label">Location</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" id="location"></textarea>
+
+                </div>
+            </div>
+            <br /> <br />   <br /> <br />
+            <label for="emp_image_file" class="col-lg-2 control-label">Image</label>
+            <div class="col-lg-10">
+                <input type="file" class="form-control" id="emp_image_file" />
+            </div>
+
+            <br /> <br /> <br />
+            <div class="form-group">
+                
+
+                    <button type="submit" action="/addEmployee" class="btn btn-primary" style="margin-left:130px">Submit</button>
+                
+            </div>
+
+        </form>
+    </form>
+
 </body>
 </html>
