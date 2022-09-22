@@ -1,6 +1,6 @@
 customhost = "hr-db.cpaf838sttar.us-east-1.rds.amazonaws.com"
 customuser = "admin"
 custompass = "admin12345"
-customdb = "hr-db"
-custombucket = "chongkewei-employee"
+customdb = "HR"
+custombucket = "chongkewei-bucket"
 customregion = "us-east-1"
