@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Employee</title>
 </head>
 <body id="firstPage" style="margin-top: 100px;">
 
@@ -49,9 +49,18 @@
 
 
             <div class="form-group">
+                <label for="pri_skill" class="col-lg-2 control-label">Primary Skill</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" id="pri_skill" name="pri_skill" placeholder="Primary Skill"></textarea>
+
+                </div>
+            </div>
+<br /> <br />   
+
+            <div class="form-group">
                 <label for="location" class="col-lg-2 control-label">Location</label>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="location" name="location" placeholder=""></textarea>
+                    <textarea class="form-control" rows="3" id="location" name="location" placeholder="Location"></textarea>
 
                 </div>
             </div>
