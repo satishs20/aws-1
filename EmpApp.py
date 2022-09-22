@@ -49,7 +49,7 @@ def searchEmployee():
 
         select_sql = "SELECT * FROM employee WHERE emp_id = %s"
         cursor = db_conn.cursor()
-        cursor.execute(select_sql)
+        cursor.execute(select_sql,(emp_id))
 
         records = cursor.fetchall()
         row_count = cursor.rowcount
