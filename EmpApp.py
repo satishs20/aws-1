@@ -20,16 +20,16 @@ def index():
 def addEmp():
     return render_template('addEmp.html')  
 
-@app.route("/addingEmployee", methods=['GET', 'POST'])
-def addingEmployee():
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
-    if first_name!="":
-        full_name = "" + first_name + " " + last_name
-    else:
-        full_name = "The employee"
+# @app.route("/addingEmployee", methods=['GET', 'POST'])
+# def addingEmployee():
+#     first_name = request.form.get("first_name")
+#     last_name = request.form.get("last_name")
+#     if first_name!="":
+#         full_name = "" + first_name + " " + last_name
+#     else:
+#         full_name = "The employee"
 
-    return render_template('addSuccessful.html',full_name=full_name)  
+#     return render_template('addSuccessful.html',full_name=full_name)  
 
 @app.route("/addSuccessful", methods=['GET', 'POST'])
 def addSuccessful():    
@@ -68,23 +68,21 @@ def searchEmployee():
         if row_count!=0:
             
             global emp_id1
-            global first_name
-            global last_name
-            global pri_skill
-            global location
-            global emp_image_file
+            global first_name1
+            global last_name1
+            global pri_skill1
+            global location1
                 
             for row in records:
                 
                 emp_id1 = row[0]
-                first_name = row[1]
-                last_name = row[2]
-                pri_skill = row[3]
-                location = row[4]
+                first_name1 = row[1]
+                last_name1 = row[2]
+                pri_skill1 = row[3]
+                location1 = row[4]
 
         cursor.close()
-        print("all modification done...")
-        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name,last_name=last_name,pri_skill=pri_skill,location=location)
+        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
@@ -102,12 +100,12 @@ def passPOSTDataSample():
 
 @app.route("/addEmployee", methods=['POST'])
 def AddEmp():
-    global emp_id
-    global first_name
-    global last_name
-    global pri_skill
-    global location
-    global emp_image_file
+    global emp_id2
+    global first_name2
+    global last_name2
+    global pri_skill2
+    global location2
+    global emp_image_file2
     
     with connections.Connection(
         host=customhost,
@@ -116,33 +114,33 @@ def AddEmp():
         password=custompass,
         db=customdb
     ) as db_conn:
-        emp_id = request.form['emp_id']
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-        pri_skill = request.form['pri_skill']
-        location = request.form['location']
-        emp_image_file = request.files['emp_image_file']
+        emp_id2 = request.form['emp_id']
+        first_name2 = request.form['first_name']
+        last_name2 = request.form['last_name']
+        pri_skill2 = request.form['pri_skill']
+        location2 = request.form['location']
+        emp_image_file2 = request.files['emp_image_file']
 
         insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
         cursor = db_conn.cursor()
 
-        if emp_image_file.filename == "":
+        if emp_image_file2.filename == "":
             return "Please select a file"
 
         try:
 
-            cursor.execute(insert_sql, (emp_id, first_name,
-                           last_name, pri_skill, location))
+            cursor.execute(insert_sql, (emp_id2, first_name2,
+                           last_name2, pri_skill2, location2))
             db_conn.commit()
-            emp_name = "" + first_name + " " + last_name
-            # Uplaod image file in S3 #
-            emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+            full_name = "" + first_name2 + " " + last_name2
+            # Upload image file in S3 #
+            emp_image_file_name_in_s3 = "emp-id-" + str(emp_id2) + "_image_file"
             s3 = boto3.resource('s3')
 
             try:
                 print("Data inserted in MySQL RDS... uploading image to S3...")
                 s3.Bucket(custombucket).put_object(
-                    Key=emp_image_file_name_in_s3, Body=emp_image_file)
+                    Key=emp_image_file_name_in_s3, Body=emp_image_file2)
                 bucket_location = boto3.client(
                     's3').get_bucket_location(Bucket=custombucket)
                 s3_location = (bucket_location['LocationConstraint'])
@@ -164,7 +162,7 @@ def AddEmp():
             cursor.close()
 
         print("all modification done...")
-        return render_template('addSuccessful.html', name=emp_name)
+        return render_template('addSuccessful.html', full_name=full_name)
 
 
 if __name__ == '__main__':
