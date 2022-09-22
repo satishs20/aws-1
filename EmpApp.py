@@ -49,12 +49,6 @@ def samplepage():
 
 @app.route("/searchEmployee", methods=['GET', 'POST'])
 def searchEmployee():
-    global emp_id
-    global first_name
-    global last_name
-    global pri_skill
-    global location
-    global emp_image_file
     
     with connections.Connection(
         host=customhost,
@@ -72,7 +66,15 @@ def searchEmployee():
         records = cursor.fetchall()
         row_count = cursor.rowcount
         if row_count!=0:
+            
             for row in records:
+                global emp_id
+                global first_name
+                global last_name
+                global pri_skill
+                global location
+                global emp_image_file
+            
                 emp_id = row[0]
                 first_name = row[1]
                 last_name = row[2]
