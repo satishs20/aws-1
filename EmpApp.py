@@ -57,17 +57,17 @@ def searchEmployee():
         password=custompass,
         db=customdb
     ) as db_conn:
-        s_emp_id = request.form['emp_id']
+        emp_id = request.form['emp_id']
 
         select_sql = "SELECT * FROM employee WHERE emp_id = %s"
         cursor = db_conn.cursor()
-        cursor.execute(select_sql,(s_emp_id))
+        cursor.execute(select_sql,(emp_id))
 
         records = cursor.fetchall()
         row_count = cursor.rowcount
         if row_count!=0:
             
-            global emp_id
+            global emp_id1
             global first_name
             global last_name
             global pri_skill
@@ -76,7 +76,7 @@ def searchEmployee():
                 
             for row in records:
                 
-                emp_id = row[0]
+                emp_id1 = row[0]
                 first_name = row[1]
                 last_name = row[2]
                 pri_skill = row[3]
@@ -84,7 +84,7 @@ def searchEmployee():
 
         cursor.close()
         print("all modification done...")
-        return render_template('empDetails.html', emp_id=emp_id,first_name=first_name,last_name=last_name,pri_skill=pri_skill,location=location)
+        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name,last_name=last_name,pri_skill=pri_skill,location=location)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
