@@ -20,8 +20,19 @@ def index():
 def addEmp():
     return render_template('addEmp.html')  
 
+@app.route("/addingEmployee", methods=['GET', 'POST'])
+def addingEmployee():
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    if first_name!="":
+        full_name = "" + first_name + " " + last_name
+    else:
+        full_name = "The employee"
+
+    return render_template('addSuccessful.html',full_name=full_name)  
+
 @app.route("/addSuccessful", methods=['GET', 'POST'])
-def addSuccessful():
+def addSuccessful():    
     return render_template('addSuccessful.html')
 
 @app.route("/empDetails", methods=['GET', 'POST'])
