@@ -92,6 +92,13 @@ def passPOSTDataSample():
 
 @app.route("/addEmployee", methods=['POST'])
 def AddEmp():
+    global emp_id
+    global first_name
+    global last_name
+    global pri_skill
+    global location
+    global emp_image_file
+    
     with connections.Connection(
         host=customhost,
         port=3306,
@@ -99,12 +106,12 @@ def AddEmp():
         password=custompass,
         db=customdb
     ) as db_conn:
-        global emp_id = request.form['emp_id']
-        global first_name = request.form['first_name']
-        global last_name = request.form['last_name']
-        global pri_skill = request.form['pri_skill']
-        global location = request.form['location']
-        global emp_image_file = request.files['emp_image_file']
+        emp_id = request.form['emp_id']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        pri_skill = request.form['pri_skill']
+        location = request.form['location']
+        emp_image_file = request.files['emp_image_file']
 
         insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
         cursor = db_conn.cursor()
