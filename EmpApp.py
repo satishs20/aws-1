@@ -26,9 +26,7 @@ def home():
     return render_template('Index.cshtml')
 
 
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
+
 
 
 @app.route("~/Home/addEmployee", methods=['POST'])
