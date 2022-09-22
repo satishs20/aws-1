@@ -29,7 +29,7 @@ def home():
 
 
 
-@app.route("~/Home/addEmployee", methods=['POST'])
+@app.route("/aws-1/Views//Home/addEmployee", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
