@@ -18,7 +18,7 @@ def index():
 
 @app.route("/addEmp", methods=['GET', 'POST'])
 def addEmp():
-    return render_template('addEmp.html')  
+    return render_template('addEmp.html')
 
 # @app.route("/addingEmployee", methods=['GET', 'POST'])
 # def addingEmployee():

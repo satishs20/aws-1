@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
 </head>
 <body id="firstPage" style="margin-top: 100px;background:linear-gradient(to bottom, ghostwhite 0%, #dfdfff 100%);">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="height:10%;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -17,14 +19,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/" style="font-size: 25px;color:rgb(65, 65, 65);margin-top: 6px;"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    <li ><a href="/addEmp">Add Employee </a></li>
-                    <li><a href="/retrieveEmp">Retrieve Employee Detail</a></li>
+                    <li ><a href="/addEmp" style="font-size: 22px;color:rgb(65, 65, 65);margin-top: 8px;"><i class="fa fa-users" aria-hidden="true"></i> Add Employee </a></li>
+                    <li><a href="/retrieveEmp" style="font-size: 22px;color:rgb(65, 65, 65);margin-top: 8px;"><i class="fa fa-address-book" aria-hidden="true"></i>
+                        Retrieve Employee Detail</a></li>
                     
                 </ul>               
             </div>
@@ -34,10 +37,6 @@
 
 
         <form class="form-horizontal" style="width:700px;height:550px;">
-
-            <!---<button type="submit" formaction="/Home/retrieveEmployee" class="btn btn-primary btn-lg">GET EMPLOYEE INFORMATION</button><br><br>
-            -->
-
 
             <h1 style="font-family: ProximaNovaSemiBold,Arial,sans-serif; font-size: 40px; line-height: 60px; margin-bottom: 20px; margin-left: 15px;  ">Add Employee</h1>
 
@@ -84,7 +83,8 @@
             <div class="form-group">
                 
 
-                    <button type="submit" action="/addEmployee" class="btn btn-primary" style="margin-left:140px;font-size: 15px;">Submit</button>
+                    <a href="/"><input class="btn btn-primary" type="button" style="margin-left:560px;font-size: 15px;background-color: rgb(253, 55, 55);border-color: rgb(153, 4, 4);width: fit-content;" value="Cancel"></a>
+                    <button type="submit" action="/addEmployee" class="btn btn-primary" style="margin-left:10px;font-size: 15px;">Submit</button>
                 
             </div>
 
