@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,79 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
 </head>
-<body id="firstPage" style="margin-top: 100px;">
-
-    <form action="/addEmployee" autocomplete="on" method="POST" enctype="multipart/form-data" style="width:700px;border-width: medium;background-color: ghostwhite;border-style: double;">
-
-
-        <form class="form-horizontal">
-
-            <!---<button type="submit" formaction="/Home/retrieveEmployee" class="btn btn-primary btn-lg">GET EMPLOYEE INFORMATION</button><br><br>
-            -->
-
-
-            <h1 style="font-family: ProximaNovaSemiBold,Arial,sans-serif; font-size: 40px; line-height: 60px; margin-bottom: 13px; margin-left: 15px;  ">Add Employee</h1>
-
-            <div class="form-group">
-                <label for="emp_id" class="col-lg-2 control-label" style="font-family: "Source Sans Pro", "Helvetica Neue" , Helvetica, Arial, sans-serif;">Employee Id</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee Id">
-                </div>
+<body style="margin-top: 100px;background:linear-gradient(to bottom, ghostwhite 0%, #dfdfff 100%);">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Home</a>
             </div>
 
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
 
-
-
-            <br /> <br />
-            <div class="form-group">
-                <label for="first_name" class="col-lg-2 control-label">First Name </label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="FirstName">
-                </div>
+                    <li ><a href="/addEmp">Add Employee </a></li>
+                    <li><a href="/retrieveEmp">Retrieve Employee Detail</a></li>
+                    
+                </ul>               
             </div>
-            <br /> <br />
-
-            <div class="form-group">
-                <label for="last_name" class="col-lg-2 control-label">Last Name </label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="LastName">
-                </div>
-            </div>
-            <br /> <br />
-
-
-            <div class="form-group">
-                <label for="pri_skill" class="col-lg-2 control-label">Primary Skill</label>
-                <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="pri_skill" name="pri_skill" placeholder="Primary Skill"></textarea>
-
-                </div>
-            </div>
-<br /> <br />   
-
-            <div class="form-group">
-                <label for="location" class="col-lg-2 control-label">Location</label>
-                <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="location" name="location" placeholder="Location"></textarea>
-
-                </div>
-            </div>
-            <br /> <br />   <br /> <br />
-            <label for="emp_image_file" class="col-lg-2 control-label">Image</label>
-            <div class="col-lg-10">
-                <input type="file" class="form-control" id="emp_image_file" name="emp_image_file" />
-            </div>
-
-            <br /> <br /> <br />
-            <div class="form-group">
-                
-
-                    <button type="submit" action="/addEmployee" class="btn btn-primary" style="margin-left:130px">Submit</button>
-                
-            </div>
-
-        </form>
-    </form>
+        </div>
+    </nav>
+    
+    <div class="jumbotron" style="width:60%;margin: 0px auto; padding: 20px;background:linear-gradient(to bottom, white 0%, ghostwhite 100%);">
+        <h1>HR software</h1>
+        <p class="lead" style="font-size: 22px">
+            HR software is a digital solution for managing and optimizing the daily human resources tasks and overall HR goals of an organization. HR software makes it possible 
+            for HR staff and managers to better allocate their time and resources to more productive, profitable efforts.
+        </p>
+        <p><a href="/addEmp" class="btn btn-primary btn-lg" style="font-size: 17px" >Try Now &raquo;</a></p>
+    </div>
+    
+    <div class="row" style="width:70%;margin: 0px auto;">
+        <div class="col-md-4" style="margin-right:-70px ;margin-left: 70px;">
+            <h2>Add Employee</h2>
+            <p style="font-size: 16px">
+                To add new <b>employee</b> infromation <br/>into the database
+            </p>
+            <p><a class="btn btn-default" href="/addEmp" style="background: rgb(255, 218, 242);font-size: 15px;">Add now &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Retrieve Employee Detail</h2>
+            <p style="font-size: 16px">To search for particular <b>employee</b> detail from <br/> the database</p>
+            <p><a class="btn btn-default" href="/retrieveEmp" style="background: rgb(255, 218, 242);font-size: 15px">Search now &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>FAQ</h2>
+            <p style="font-size: 16px">A collection of frequently asked <br/><b>questions</b> about the system</p>
+            <p><a class="btn btn-default" href="" style="background: rgb(255, 218, 242);font-size: 15px">Read Now &raquo;</a></p>
+        </div>
+    </div>
 
 </body>
 </html>
