@@ -57,11 +57,11 @@ def searchEmployee():
         password=custompass,
         db=customdb
     ) as db_conn:
-        emp_id = request.form['emp_id']
+        s_emp_id = request.form['emp_id']
 
         select_sql = "SELECT * FROM employee WHERE emp_id = %s"
         cursor = db_conn.cursor()
-        cursor.execute(select_sql,(emp_id))
+        cursor.execute(select_sql,(s_emp_id))
 
         records = cursor.fetchall()
         row_count = cursor.rowcount
