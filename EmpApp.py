@@ -99,7 +99,7 @@ def searchEmployee():
         s3 = boto3.resource('s3')
         file_path = "emp-id-" + str(emp_id1) + "_image_file"
         try:
-            image = s3.Object(bucket, file_path).get()["Body"].read()
+            image = s3.Object(custombucket, file_path).get()["Body"].read()
         except Exception as e:
             return {"status": -1, "msg": str(e)}
         response = make_response(image)
