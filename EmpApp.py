@@ -83,19 +83,19 @@ def searchEmployee():
                 location1 = row[4]
 
         cursor.close()
-        
-        s3 = boto3.resource('s3')
-        s3_client = boto3.client('s3')
-        public_urls = []
-        file_path = "emp-id-" + str(emp_id1) + "_image_file"
-        try:
-            for item in s3_client.list_objects(Bucket=bucket)['Contents']:
-                presigned_url = s3_client.generate_presigned_url('get_object', Params = {'Bucket': bucket, 'Key': item[file_path]})
-                public_urls.append(presigned_url)
-        except Exception as e:
-            pass
+        image_url1 = str("https://chongkewei-bucket.s3.amazonaws.com/emp-id-") + str(emp_id1) + str("_image_file.png")
+        # s3 = boto3.resource('s3')
+        # s3_client = boto3.client('s3')
+        # public_urls = []
+        # file_path = "emp-id-" + str(emp_id1) + "_image_file"
+        # try:
+        #     for item in s3_client.list_objects(Bucket=bucket)['Contents']:
+        #         presigned_url = s3_client.generate_presigned_url('get_object', Params = {'Bucket': bucket, 'Key': item[file_path]})
+        #         public_urls.append(presigned_url)
+        # except Exception as e:
+        #     pass
        
-        img_url1 = public_urls
+        # img_url1 = public_urls
 
         # s3 = boto3.resource('s3')
         # file_path = "emp-id-" + str(emp_id1) + "_image_file"
@@ -107,7 +107,9 @@ def searchEmployee():
         # response.headers.set('Content-Type', 'image/png')
         # response.headers.set(
         #     'Content-Disposition', 'attachment', filename='%s.png' % file_path)
-        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=img_url1)
+
+
+        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=image_url1)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
