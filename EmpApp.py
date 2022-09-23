@@ -72,6 +72,7 @@ def searchEmployee():
             global last_name1
             global pri_skill1
             global location1
+            global image_url1
                 
             for row in records:
                 
@@ -83,30 +84,30 @@ def searchEmployee():
 
         cursor.close()
         
-        # s3 = boto3.resource('s3')
-        # s3_client = boto3.client('s3')
-        # public_urls = []
-        # file_path = "emp-id-" + str(emp_id1) + "_image_file"
-        # try:
-        #     for item in s3_client.list_objects(Bucket=bucket)['Contents']:
-        #         presigned_url = s3_client.generate_presigned_url('get_object', Params = {'Bucket': bucket, 'Key': item[file_path]})
-        #         public_urls.append(presigned_url)
-        # except Exception as e:
-        #     pass
-       
-        # img_url1 = public_urls
-
         s3 = boto3.resource('s3')
+        s3_client = boto3.client('s3')
+        public_urls = []
         file_path = "emp-id-" + str(emp_id1) + "_image_file"
         try:
-            image = s3.Object(custombucket, file_path).get()["Body"].read()
+            for item in s3_client.list_objects(Bucket=bucket)['Contents']:
+                presigned_url = s3_client.generate_presigned_url('get_object', Params = {'Bucket': bucket, 'Key': item[file_path]})
+                public_urls.append(presigned_url)
         except Exception as e:
-            return {"status": -1, "msg": str(e)}
-        response = make_response(image)
-        response.headers.set('Content-Type', 'image/png')
-        response.headers.set(
-            'Content-Disposition', 'attachment', filename='%s.png' % file_path)
-        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=response)
+            pass
+       
+        img_url1 = public_urls
+
+        # s3 = boto3.resource('s3')
+        # file_path = "emp-id-" + str(emp_id1) + "_image_file"
+        # try:
+        #     image = s3.Object(custombucket, file_path).get()["Body"].read()
+        # except Exception as e:
+        #     return {"status": -1, "msg": str(e)}
+        # response = make_response(image)
+        # response.headers.set('Content-Type', 'image/png')
+        # response.headers.set(
+        #     'Content-Disposition', 'attachment', filename='%s.png' % file_path)
+        return render_template('empDetails.html', emp_id=emp_id1,first_name=first_name1,last_name=last_name1,pri_skill=pri_skill1,location=location1,img_url=img_url1)
 
 @app.route("/passPOSTDataSample", methods=["GET", "POST"])
 def passPOSTDataSample():
